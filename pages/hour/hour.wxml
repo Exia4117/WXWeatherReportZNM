@@ -1,0 +1,18 @@
+<!--pages/hour/index.wxml-->
+<view class='container'>
+  <view class="chart" style='width:100%;text-align:center;'>
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas"></canvas>
+  </view>
+
+  <view class='weather-detail'>
+    <scroll-view scroll-x='true' style="white-space: nowrap; ">
+      <view class='item-hourly' wx:for="{{hour}}" wx:key="item.time">
+        <view>{{item.time}}</view>
+        <view>{{item.tmp}}°</view>
+        <view>{{item.cond_txt}}</view>
+        <view>降水:{{item.pop}}%</view>
+        <view>{{item.wind_dir}}:{{item.wind_spd}}级</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

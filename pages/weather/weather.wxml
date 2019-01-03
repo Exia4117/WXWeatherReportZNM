@@ -1,0 +1,27 @@
+<!--pages/weather/weather.wxml-->
+
+<view class='city'>{{city}}{{district}}</view>
+
+<view class='weather-basic'>
+  <view class='temperature'>{{tmp}}°</view>
+  <view class='weather-extra'>
+    <view class='weather'>{{txt}}</view>
+
+    <view wx:if="{{sc == '微风'}}" class="weather">{{dir}} 微风</view>
+    <view wx:else class="weather">{{dir}} {{sc}}级</view>
+    <view class="weather">体感温度 {{fl}}°</view>
+  </view>
+</view>
+
+
+
+<view class='weather-detail'>
+  <scroll-view scroll-x='true' style="white-space: nowrap; ">
+    <view class="item-daily" wx:for="{{daily_forecast}}" wx:key="item.dayofweek">
+      <view>{{item.dayofweek}}</view>
+      <view>{{item.cond_txt_d}}</view>
+      <view>{{item.wind_dir}}</view>
+      <view>{{item.tmp_min}}℃ ~{{item.tmp_max}}℃</view>
+    </view>
+  </scroll-view>
+</view>
